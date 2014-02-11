@@ -1,0 +1,203 @@
+#! /bin/bash
+#interne variable 
+
+FILENAME="Oto-Convert MP3"
+
+#VABS
+  ORG_FORMAT=$1
+  #NEW_FORMAT=$2
+  SAMPLERATE=480000
+  TIJD=0
+
+
+#HEAD
+  echo " "
+  echo "Welcome to $FILENAME"
+  echo "##########################"
+  echo " "
+  echo "Choose input format
+	(1) AIFF
+	(2) WAVE"
+  echo " "
+  echo "(other == exit)"
+  echo " "
+  echo "--------------------------"
+
+
+#CASE - STATE
+  while read name; do
+   case $name in
+    "1")
+	echo
+	echo "~ convert AIFF"
+	echo
+	echo "  TO  "
+	echo "(1) MP3"
+	echo "(2) FLAC"
+	echo
+		read TO;
+		case $TO in
+		  "1")
+		      echo
+		      echo " ~ convert AIFF TO MP3 ~ "
+		      echo 
+		      echo "	R U SURE?"
+		      echo "	  (y/n)"
+		      echo
+		      echo "-------------------------"
+				read SURE;
+				case $SURE in
+		  		  "y")
+		      		     echo
+		      		     echo 
+		      		     echo "   #####CONVERT#####"
+		      		     echo "    ~ AIFF TO MP3 ~ "
+		      		     echo 
+		      		     echo
+		      		     echo "-------------------------"
+				;;
+				*)
+				exit
+				;;
+				esac
+#
+#
+#
+#
+
+		;;
+		  "2")
+		      echo
+		      echo " ~ convert AIFF TO FLAC ~ "
+		      echo 
+		      echo "	R U SURE?"
+		      echo "	  (y/n)"
+		      echo
+		      echo "-------------------------"
+				read SURE;
+				case $SURE in
+		  		  "y")
+		      		     echo
+		      		     echo 
+		      		     echo "    #####CONVERT#####"
+		      		     echo "    ~ AIFF OTO FLAC ~ "
+		      		     echo 
+		      		     echo
+		      		     echo "-------------------------"
+				;;
+				*)
+				exit
+				;;
+				esac
+
+		;;
+		*)
+		  exit
+		;;
+		esac
+#
+#
+#
+#
+#
+#
+#
+
+    ;;
+    "2")
+	echo
+	echo "~ convert WAVE"
+	echo
+	echo "  TO  "
+	echo "(1) MP3"
+	echo "(2) FLAC"
+	echo
+		read TO;
+		case $TO in
+		  "1")
+		      echo
+		      echo " ~ convert WAVE TO MP3 ~ "
+		      echo 
+		      echo "	R U SURE?"
+		      echo "	  (y/n)"
+		      echo
+		      echo "-------------------------"
+				read SURE;
+				case $SURE in
+		  		  "y")
+		      		     echo
+		      		     echo 
+		      		     echo "   #####CONVERT#####"
+		      		     echo "    ~ WAVE TO MP3 ~ "
+		      		     echo 
+		      		     echo
+		      		     echo "-------------------------"
+				mkdir converted mp3
+				;;
+				*)
+				exit
+				;;
+				esac
+#
+#
+#
+#
+
+		;;
+		  "2")
+		      echo
+		      echo " ~ convert WAVE TO FLAC ~ "
+		      echo 
+		      echo "	R U SURE?"
+		      echo "	  (y/n)"
+		      echo
+		      echo "-------------------------"
+				read SURE;
+				case $SURE in
+		  		  "y")
+		      		     echo
+		      		     echo 
+		      		     echo "   #####CONVERT#####"
+		      		     echo "   ~ WAVE OTO FLAC ~ "
+		      		     echo 
+		      		     echo
+		      		     echo "-------------------------"
+				;;
+				*)
+				exit
+				;;
+				esac
+		;;
+		*)
+		  exit
+		;;
+		esac
+
+    ;;
+    *)
+      exit
+    ;;
+  esac
+done
+#
+#
+#
+#
+#
+#
+#
+#
+
+
+
+#while [ $TIJD -lt 120 ]
+#do
+# let TIJD=TIJD+120
+# echo $TIJD
+# done
+
+
+# 1  case - state machine -"parameter 1 wav - aiff, parameter 2 mp3 flac"
+# 2  for - zoeken naar alle files
+# 3  dan door de codec coverten |
+# 4  dan dumpen in een nieuwe (sub)Dir
